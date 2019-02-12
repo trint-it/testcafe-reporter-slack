@@ -1,14 +1,18 @@
 {
-  "name": "testcafe-reporter-slack",
-  "version": "0.0.6",
+  "name": "@trint/testcafe-reporter-slack",
+  "version": "0.0.7",
   "description": "TestCafe slack reporter plugin.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Shafied/testcafe-reporter-slack.git"
+    "url": "git@github.com:trint-it/testcafe-reporter-slack.git"
   },
   "author": {
     "name": "Shafied",
     "email": "shafiedn@gmail.com"
+  },
+  "contributor": {
+    "name": "Fabio Antunes",
+    "email": "fabio@trint.com"
   },
   "main": "lib/index",
   "files": [

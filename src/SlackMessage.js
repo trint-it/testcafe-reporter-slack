@@ -46,13 +46,7 @@ export default class SlackMessage {
     }
 
     getTestReportMessage() {
-        let message = this.getSlackMessage();
-        let errorMessage = this.getErrorMessage();
-
-        if(errorMessage.length > 0) {
-            message = message + "\n\n\n```" + this.getErrorMessage() + '```';
-        }
-        return message;
+        return this.getSlackMessage();
     }
 
     getErrorMessage() {

@@ -1,4 +1,5 @@
 import SlackMessage from './SlackMessage'
+const envs = require('envs');
 
 export default function () {
     return {
@@ -10,7 +11,9 @@ export default function () {
             this.startTime = startTime;
             this.testCount = testCount;
 
-            this.slack.sendMessage(`Starting testcafe ${startTime}. \n Running tests in: ${userAgents}`)
+            this.slack.sendMessage(`Starting testcafe ${startTime} \n Running tests in: ${userAgents} \n Against: ${envs('ENV', 'No env specified :scream:')}
+            \n CI JOB: ${envs('CI_JOB_URL', '')} \n MERGE REQUEST: ${envs('CI_MERGE_REQUEST_PROJECT_URL', '')} \n USER: @${envs('GITLAB_USER_LOGIN', 'No One')}
+            `);
         },
 
         reportFixtureStart (name, path) {
@@ -20,7 +23,7 @@ export default function () {
 
         reportTestDone (name, testRunInfo) {
             const hasErr = testRunInfo.errs.length > 0;
-            const result = hasErr ? ':heavy_multiplication_x:' : ':heavy_check_mark: ';
+            const result = hasErr ? ':red_circle:' : ':white_check_mark: ';
 
             this.slack.addMessage(`${result} ${name}`);
 
@@ -47,6 +50,11 @@ export default function () {
             footer = `\n*${footer}* (Duration: ${durationStr})`;
 
             this.slack.addMessage(footer);
+
+            if (passed < this.testCount) {
+                this.slack.addMessage('https://media.giphy.com/media/W81qSImkIxkNq/giphy.gif');
+            }
+
             this.slack.sendTestReport(this.testCount - passed);
         }
     }
