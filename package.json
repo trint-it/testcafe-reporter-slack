@@ -4,12 +4,9 @@
   "description": "TestCafe slack reporter plugin.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:trint-it/testcafe-reporter-slack.git"
+    "url": "git+ssh://git@github.com/trint-it/testcafe-reporter-slack.git"
   },
-  "author": {
-    "name": "Shafied",
-    "email": "shafiedn@gmail.com"
-  },
+  "author": "Shafied <shafiedn@gmail.com>",
   "contributor": {
     "name": "Fabio Antunes",
     "email": "fabio@trint.com"
