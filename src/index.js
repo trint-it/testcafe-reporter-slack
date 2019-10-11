@@ -52,7 +52,7 @@ export default function () {
             this.slack.addMessage(footer);
 
             if (passed < this.testCount) {
-                this.slack.addMessage('https://media.giphy.com/media/W81qSImkIxkNq/giphy.gif');
+                this.slack.addMessage('https://media.giphy.com/media/ENagATV1Gr9eg/giphy.gif');
             }
 
             this.slack.sendTestReport(this.testCount - passed);
